@@ -32,11 +32,6 @@ numberValue.forEach(button => {
     })
 })
 
-function updateDisplay(value) {
-    display.innerHTML += value;
-}
-
-
 // Operations
 function add() {
     previousValue = Number(previousValue) + Number(currentValue)
@@ -69,5 +64,4 @@ function operate() {
             divide();
             break;        
     }
-    console.log(previousValue)
 }
