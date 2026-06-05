@@ -2,6 +2,25 @@ const display = document.getElementById("display");
 let previousValue = "";
 let currentValue = "";
 
+// Extracting Operator symbols for operate function
+const operators = document.querySelectorAll(".operator")
+let chosenOperator = ""
+
+operators.forEach(button => {
+    button.addEventListener("click", () => {
+        
+        // Operate if both values are not empty
+        if(previousValue !== "" && currentValue !== "") {
+            operate();
+        } else { 
+            previousValue = currentValue; // For first input
+        }
+        
+        chosenOperator = button.textContent;
+        currentValue = "";
+        display.textContent = previousValue
+    })
+})
 
 
 const numberValue = document.querySelectorAll(".number")
@@ -20,9 +39,7 @@ function updateDisplay(value) {
 
 // Operations
 function add() {
-    console.log(previousValue)
     previousValue = Number(previousValue) + Number(currentValue)
-    currentValue = ""
 }
 
 function subtract() {
@@ -38,5 +55,18 @@ function divide() {
 }
 
 function operate() {
-
+    switch(chosenOperator) {
+        case "+":
+            add();
+            break;        
+        case "-":
+            subtract();
+            break;
+        case "×":
+            multiply();
+            break;
+        case "÷":
+            divide();
+            break;        
+    }
 }
