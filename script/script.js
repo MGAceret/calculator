@@ -43,15 +43,15 @@ function add() {
 }
 
 function subtract() {
-
+    previousValue = Number(previousValue) - Number(currentValue)
 }
 
 function multiply() {
-
+    previousValue = Number(previousValue) * Number(currentValue)
 }
 
 function divide() {
-
+    previousValue = Number(previousValue) / Number(currentValue)
 }
 
 function operate() {
@@ -59,7 +59,7 @@ function operate() {
         case "+":
             add();
             break;        
-        case "-":
+        case "−":
             subtract();
             break;
         case "×":
@@ -69,4 +69,5 @@ function operate() {
             divide();
             break;        
     }
+    console.log(previousValue)
 }
