@@ -8,9 +8,14 @@ html {
     height: 100%;
 }
 
-body {
+body,
+#display,
+.row {
     display: flex;
     align-items: center;
+}
+
+body {
     justify-content: center;
     height: inherit;
 }
@@ -22,9 +27,7 @@ body {
 }
 
 #display {
-    display: flex;
     justify-content: flex-end;
-    align-items: center;
     padding-right: 15px;
     color: rgb(237,226,180);
     background-color: rgb(50, 42, 24);
@@ -35,7 +38,6 @@ body {
 }
 
 .row {
-    display: flex;
     justify-content: space-evenly;
 }
 
@@ -47,12 +49,12 @@ body {
     font-size: 25px;
     border: none;
     font-weight: bold;
+    transition: 0.2s ease; 
 }
 
 .clear {
     background-color: rgb(48, 76, 52);
     color: rgb(205, 233, 207);
-    transition: 0.2s ease;
 }
 
 .number,
@@ -60,17 +62,14 @@ body {
 .backspace {
     background-color: rgb(33, 31, 14);
     color: rgb(205, 195, 183);
-    transition: 0.2s ease;
 }
 
 .operator {
     background-color: rgb(83, 68, 46);
     color: rgb(238, 231, 189);
-    transition: 0.2s ease;
 }
 
 .equal {
     background-color: rgb(87, 66, 1);
     color: rgb(252, 225, 140);
-    transition: 0.2s ease;    
 }
