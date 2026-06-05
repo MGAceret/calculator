@@ -73,3 +73,31 @@ body {
     background-color: rgb(87, 66, 1);
     color: rgb(252, 225, 140);
 }
+
+/* Animations */
+.number:hover,
+.decimal:hover,
+.backspace:hover,
+.operator:hover,
+.clear:hover,
+.equal:hover {
+    border-radius: 20px;
+}
+
+.number:active,
+.decimal:active,
+.backspace:active {
+    background-color: rgb(68, 64, 29);
+}
+
+.clear:active {
+    background-color: rgb(67, 106, 73);
+}
+
+.operator:active {
+    background-color: rgb(107, 88, 60);
+}
+
+.equal:active {
+    background-color: rgb(101, 76, 0);
+}
