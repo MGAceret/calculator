@@ -1,14 +1,28 @@
-const display = document.getElementById("display")
+const display = document.getElementById("display");
+let previousValue = "";
+let currentValue = "";
 
-function updateDisplay() {
-    display.innerHTML = document.addEventListener(".number");
+
+
+const numberValue = document.querySelectorAll(".number")
+
+numberValue.forEach(button => {
+    button.addEventListener("click", () => {
+        currentValue += button.textContent;
+        display.textContent = currentValue;
+    })
+})
+
+function updateDisplay(value) {
+    display.innerHTML += value;
 }
 
-updateDisplay()
 
 // Operations
 function add() {
-
+    console.log(previousValue)
+    previousValue = Number(previousValue) + Number(currentValue)
+    currentValue = ""
 }
 
 function subtract() {
@@ -24,5 +38,5 @@ function divide() {
 }
 
 function operate() {
-    
+
 }
