@@ -5,6 +5,7 @@ let currentValue = "";
 // Extracting Operator symbols for operate function
 const operators = document.querySelectorAll(".operator")
 let chosenOperator = ""
+let lastOperator = ""
 
 operators.forEach(button => {
     button.addEventListener("click", () => {
@@ -16,8 +17,13 @@ operators.forEach(button => {
             previousValue = currentValue; // For first input
         }
         
+        lastOperator = chosenOperator
         chosenOperator = button.textContent;
-        currentValue = "";
+    
+        if(chosenOperator !== "=") {
+            currentValue = "";
+        }
+
         display.textContent = previousValue
     })
 })
@@ -49,6 +55,11 @@ function divide() {
     previousValue = Number(previousValue) / Number(currentValue)
 }
 
+function equals() {
+    chosenOperator = lastOperator
+    operate();
+}
+
 function operate() {
     switch(chosenOperator) {
         case "+":
@@ -62,6 +73,9 @@ function operate() {
             break;
         case "÷":
             divide();
-            break;        
+            break;      
+        case "=":
+            equals();
+            break;  
     }
 }
