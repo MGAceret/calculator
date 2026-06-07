@@ -6,22 +6,27 @@ let currentValue = "";
 const operators = document.querySelectorAll(".operator")
 let chosenOperator = ""
 let lastOperator = ""
+let isEqual = false
 
 operators.forEach(button => {
     button.addEventListener("click", () => {
         
         // Operate if both values are not empty
         if(previousValue !== "" && currentValue !== "") {
-            operate();
+            if(isEqual == false) operate(); // Execute with operations only
         } else { 
             previousValue = currentValue; // For first input
         }
         
-        lastOperator = chosenOperator
+        lastOperator = chosenOperator;   // Save chosen operator for equals function
         chosenOperator = button.textContent;
     
+        // Execute equals()
         if(chosenOperator !== "=") {
             currentValue = "";
+        } else {
+            chosenOperator = lastOperator
+            equals();
         }
 
         display.textContent = previousValue
@@ -56,8 +61,9 @@ function divide() {
 }
 
 function equals() {
-    chosenOperator = lastOperator
+    isEqual = true;
     operate();
+    display.textContent = previousValue;
 }
 
 function operate() {
@@ -73,9 +79,6 @@ function operate() {
             break;
         case "÷":
             divide();
-            break;      
-        case "=":
-            equals();
-            break;  
+            break;
     }
 }
