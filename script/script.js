@@ -33,7 +33,7 @@ operators.forEach(button => {
     })
 })
 
-
+// Input value
 const numberValue = document.querySelectorAll(".number")
 
 numberValue.forEach(button => {
@@ -42,6 +42,24 @@ numberValue.forEach(button => {
         display.textContent = currentValue;
     })
 })
+
+// Backspace value
+const backspace = document.querySelector(".backspace");
+
+backspace.addEventListener("click", () => {
+    currentValue = currentValue.slice(0, -1)
+    display.textContent = currentValue || 0
+})
+
+// Clear inputs
+function clearValue() {
+    previousValue = ""
+    currentValue = ""
+    chosenOperator = ""
+    lastOperator = ""
+    isEqual = false
+    display.textContent = 0
+}
 
 // Operations
 function add() {
