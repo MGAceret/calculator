@@ -10,9 +10,18 @@ let isEqual = false
 
 operators.forEach(button => {
     button.addEventListener("click", () => {
+
+        // Ignore operator if no number has been entered
+        if (currentValue === "" && previousValue === "") return;
+
+        // Changing operator without currentValue placed
+        if (currentValue === "") {
+            chosenOperator = button.textContent;
+            return;
+        }
         
         // Operate if both values are not empty
-        if(previousValue !== "" && currentValue !== "") {
+        if(previousValue !== "") {
             if(isEqual == false) operate(); // Execute with operations only
         } else { 
             previousValue = currentValue; // For first input
@@ -20,7 +29,7 @@ operators.forEach(button => {
         
         lastOperator = chosenOperator;   // Save chosen operator for equals function
         chosenOperator = button.textContent;
-    
+
         // Execute equals()
         if(chosenOperator !== "=") {
             currentValue = "";
@@ -38,6 +47,15 @@ const numberValue = document.querySelectorAll(".number")
 
 numberValue.forEach(button => {
     button.addEventListener("click", () => {
+        
+        // Clear inputs if equals is the last operator and had a number placed
+        if (isEqual) {
+            previousValue = ""
+            currentValue = ""
+            chosenOperator = ""
+            isEqual = false
+        }
+
         currentValue += button.textContent;
         display.textContent = currentValue;
     })
