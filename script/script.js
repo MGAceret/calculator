@@ -61,6 +61,19 @@ numberValue.forEach(button => {
     })
 })
 
+// Decimal/Float Value
+const decimalPlace = document.querySelector(".decimal")
+
+// Decimal placement, add/remove if its either empty or existing
+decimalPlace.addEventListener("click", () => {
+    if(!currentValue.includes(".")) {
+        currentValue += ".";
+    } else {
+        currentValue = currentValue.replace(".", "");
+    }
+    display.textContent = currentValue;
+});
+
 // Backspace value
 const backspace = document.querySelector(".backspace");
 
